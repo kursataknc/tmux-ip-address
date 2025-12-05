@@ -23,6 +23,13 @@ The key combination of refreshing IP Address can be customized by:
 set -g @ip_address_refresh_key 'P'
 ```
 
+### Local IP instead of public
+To show the local IP of your active network interface (default route) instead of public IP:
+
+```bash
+set -g @ip_address_mode 'local'   # default is 'public'
+```
+
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
 
 Add plugin to the list of TPM plugins in `.tmux.conf`:
