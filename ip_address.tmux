@@ -7,6 +7,7 @@ source "$CURRENT_DIR/scripts/helpers.sh"
 ip_address="$($CURRENT_DIR/scripts/ip_address.sh)"
 ip_address_interpolation_string="\#{ip_address}"
 ip_address_refresh_cmd_key="$(get_tmux_option "@ip_address_refresh_key" "A")"
+ip_address_status_side="$(get_tmux_option "@ip_address_status_side" "status-right")"
 
 do_interpolation() {
   local string="$1"
@@ -30,6 +31,6 @@ update_tmux_option() {
 
 main() {
   tmux bind-key "$ip_address_refresh_cmd_key" run-shell -b "$CURRENT_DIR/scripts/update_ip_address.sh"
-  update_tmux_option "status-right"
+  update_tmux_option "$ip_address_status_side"
 }
 main

@@ -5,6 +5,7 @@ CURRENT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source "$CURRENT_DIR/helpers.sh"
 
 ip_address="$($CURRENT_DIR/ip_address.sh)"
+ip_address_status_side="$(get_tmux_option "@ip_address_status_side" "status-right")"
 
 do_interpolation() {
   local string="$1"
@@ -27,6 +28,6 @@ update_tmux_option() {
 }
 
 main() {
-  update_tmux_option "status-right"
+  update_tmux_option "$ip_address_status_side"
 }
 main
